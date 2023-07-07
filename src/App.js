@@ -3,9 +3,11 @@ import './App.css';
 import MovieList from "./movie-list"
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
+import SeriesList from './series-list';
 
 const initialState = {
-  movieList:[]
+  movieList:[],
+  seriesList: []
 }
 
 function reducer(state, action){
@@ -28,8 +30,11 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-      <MovieList/>     
-    </div>
+        <MovieList/>     
+      </div>
+      <div>
+        <SeriesList/>
+      </div>
     </Provider>    
   );
 }
