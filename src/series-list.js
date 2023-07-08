@@ -3,11 +3,13 @@ import { styled } from "styled-components"
 import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
 
-
 const SeriesListStyled = styled.div`
     display: grid;
     grid-row-gap: 2.3em;
-    grid-template-columns:
+    grid-template-columns:   
+    grid-auto-flow: columns;
+    grid-column-gap: 80px;
+    grid-template-columns: repeat(auto-fill, minMax(0, 264px));
     background: var(--background);
     justify-content: center;
     border: 1px solid red;
@@ -17,7 +19,7 @@ function SeriesList(){
     const dispatch = useDispatch()
     const seriesList = useSelector((state) => state.seriesList)
     console.log('The state of my app is:, ', seriesList)
-    //const [seriesList, setSeriesList] = useState([])
+    //const [movieList, setMovieList] = useState([])
     useEffect(()=>{
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
         .then((response)=>{
@@ -28,7 +30,7 @@ function SeriesList(){
                 type: 'SET_MOVIE_LIST',
                 payload: list.entries
             })
-            //setSeriesList(data.entries)
+            //setMovieList(data.entries)
             //console.log(list.entries)
         })
         .catch(()=>{

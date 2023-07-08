@@ -1,18 +1,19 @@
 import React from "react"
 import { styled } from "styled-components"
 
-const SeriesStyled = styled.div`
-    width: 305px;
+const SeriesStyled = styled.div` 
+   
+    
     height: 794px 
     border-radius: 5px;
     margin: 1em;
     box-shadow: 0 0 7px 2px rgba(0,0,0,.03);
     
-    img{
+    img{        
         width: 100%;
-        object-fit: cover;        
+        object-fit: cover;               
     }
-
+    
     .Big{
         font-size: 2.3em;
         padding: 0.2em;
@@ -25,6 +26,9 @@ const SeriesStyled = styled.div`
     p{
         font-size: 1em;
     }
+
+
+    
     
 `
 function Series({
@@ -35,13 +39,16 @@ programType,
 images
 }){
     return(
+        
         <SeriesStyled>
+        <div id="Movie"> 
             <h2 className="Big"><strong>Series</strong></h2>
             <h2>{title}</h2>
             <p>{releaseYear}</p>
             <p>{description}</p>
             <p><strong>{programType}</strong></p>
-            <img loading="lazy" src={images}></img>        
+            <img  loading="lazy" src={images}></img>  
+        </div>      
         </SeriesStyled>
     )
 }

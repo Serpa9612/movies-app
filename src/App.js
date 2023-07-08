@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter , Link } from 'react-router-dom';
+
 import MovieList from "./movie-list"
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
@@ -18,8 +18,8 @@ function reducer(state, action){
   console.log(action);
   switch(action.type){
     case 'SET_MOVIE_LIST':{
-      return {...state, movieList: action.payload}
-    }
+      return {...state, movieList: action.payload, ...state, seriesList: action.payload} 
+    }    
     default:{
       return state
     }
@@ -32,17 +32,20 @@ const store = createStore(reducer, initialState)
 
 function App() {
   return (
+    
     <Provider store={store}>
-        <div>
-            <Navbar/>
-        </div>
-        <div>
-            <Acces/>
-        </div>    
-        <footer>
-            <Footer/>
-        </footer>
-    </Provider>    
+          <div>
+                 <Navbar/>
+          </div>
+         <div>
+              <Acces/>
+         </div>         
+           
+         <footer>
+             <Footer/>
+         </footer>
+    </Provider>
+       
   );
 }
 
