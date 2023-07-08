@@ -27,7 +27,7 @@ const SeriesStyled = styled.div`
     }
     
 `
-function Serie({
+function Series({
 title,
 releaseYear,
 description,
@@ -36,7 +36,7 @@ images
 }){
     return(
         <SeriesStyled>
-            <h2 className="Big"><strong>Serie</strong></h2>
+            <h2 className="Big"><strong>Series</strong></h2>
             <h2>{title}</h2>
             <p>{releaseYear}</p>
             <p>{description}</p>
@@ -46,4 +46,4 @@ images
     )
 }
 
-export default Serie
+export default Series

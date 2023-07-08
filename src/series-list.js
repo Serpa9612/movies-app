@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
 import { styled } from "styled-components"
-import Movie from "./movie"
+import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
-import Serie from "./series"
+
 
 const SeriesListStyled = styled.div`
     display: grid;
@@ -40,7 +40,7 @@ function SeriesList(){
                 {                    
                     seriesList.map(({title, releaseYear, description, programType, images})=>{
                         return(
-                        <Serie
+                        <Series
                             title = {title}
                             key = {title}
                             releaseYear = {releaseYear}

@@ -8,10 +8,15 @@ const MovieStyled = styled.div`
     margin: 1em;
     box-shadow: 0 0 7px 2px rgba(0,0,0,.03);
     
-    img{
+    img{        
         width: 100%;
-        object-fit: cover;        
+        object-fit: cover;               
     }
+    @media screen and (min-width: 768px){
+        img:hover{          
+          background-color: #555E65;
+        }
+      }
 
     .Big{
         font-size: 2.3em;
@@ -41,7 +46,7 @@ images
             <p>{releaseYear}</p>
             <p>{description}</p>
             <p><strong>{programType}</strong></p>
-            <img loading="lazy" src={images}></img>        
+            <img  loading="lazy" src={images}></img>        
         </MovieStyled>
     )
 }

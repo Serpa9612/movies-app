@@ -4,6 +4,7 @@ import MovieList from "./movie-list"
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
 import SeriesList from './series-list';
+import Navbar from './Navbar';
 
 const initialState = {
   movieList:[],
@@ -29,6 +30,9 @@ const store = createStore(reducer, initialState)
 function App() {
   return (
     <Provider store={store}>
+      <div>
+        <Navbar/>
+      </div>
       <div className="App">
         <MovieList/>     
       </div>
