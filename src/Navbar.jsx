@@ -21,6 +21,7 @@ function Navbar() {
           <a href = "/">LogIn</a>
           <button> Start your free trial </button>          
         </div>
+        
         <div className='burguer'>
         <BurButton clicked = {clicked} handleClick = {handleClick}/>
         </div>        
@@ -48,7 +49,7 @@ const NavContainer = styled.nav`
     text-text-decoration: none;
     margin-right: 1rem;
   }
-  padding: .4rem;
+  padding: .6rem;
   background-color: #0970C2;
   display: flex;
   align-items: center;

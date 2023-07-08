@@ -1,8 +1,9 @@
 import React from "react"
 import { styled } from "styled-components"
 
-const MovieStyled = styled.div`
-    width: 305px;
+const MovieStyled = styled.div` 
+   
+    
     height: 794px 
     border-radius: 5px;
     margin: 1em;
@@ -12,12 +13,7 @@ const MovieStyled = styled.div`
         width: 100%;
         object-fit: cover;               
     }
-    @media screen and (min-width: 768px){
-        img:hover{          
-          background-color: #555E65;
-        }
-      }
-
+    
     .Big{
         font-size: 2.3em;
         padding: 0.2em;
@@ -30,6 +26,9 @@ const MovieStyled = styled.div`
     p{
         font-size: 1em;
     }
+
+
+    
     
 `
 function Movie({
@@ -40,13 +39,16 @@ programType,
 images
 }){
     return(
+        
         <MovieStyled>
+        <div id="Movie"> 
             <h2 className="Big"><strong>Movie</strong></h2>
             <h2>{title}</h2>
             <p>{releaseYear}</p>
             <p>{description}</p>
             <p><strong>{programType}</strong></p>
-            <img  loading="lazy" src={images}></img>        
+            <img  loading="lazy" src={images}></img>  
+        </div>      
         </MovieStyled>
     )
 }

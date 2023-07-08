@@ -6,7 +6,10 @@ import {useSelector, useDispatch} from 'react-redux'
 const MovieListStyled = styled.div`
     display: grid;
     grid-row-gap: 2.3em;
-    grid-template-columns:
+    grid-template-columns:   
+    grid-auto-flow: columns;
+    grid-column-gap: 80px;
+    grid-template-columns: repeat(auto-fill, minMax(0, 264px));
     background: var(--background);
     justify-content: center;
     border: 1px solid red;

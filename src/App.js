@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter , Link } from 'react-router-dom';
 import MovieList from "./movie-list"
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
 import SeriesList from './series-list';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import Acces from './Acces';
 
 const initialState = {
   movieList:[],
@@ -30,15 +33,15 @@ const store = createStore(reducer, initialState)
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <Navbar/>
-      </div>
-      <div className="App">
-        <MovieList/>     
-      </div>
-      <div>
-        <SeriesList/>
-      </div>
+        <div>
+            <Navbar/>
+        </div>
+        <div>
+            <Acces/>
+        </div>    
+        <footer>
+            <Footer/>
+        </footer>
     </Provider>    
   );
 }
