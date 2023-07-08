@@ -26,9 +26,7 @@ function Acces() {
         <AccesStyled>          
             
 
-            <div>
-                <SeriesList/>
-            </div>
+            
 
 
             {/* <img src="https://img.freepik.com/vector-premium/clapper-pelicula-pelicula-icono-diseno_24877-23150.jpg?w=2000"     alt="This is a one picture about movies" /> 

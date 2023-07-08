@@ -27,7 +27,7 @@ function SeriesList(){
         })
         .then((list)=>{
             dispatch({
-                type: 'SET_MOVIE_LIST',
+                type: 'SET_SERIES_LIST',
                 payload: list.entries
             })
             //setMovieList(data.entries)

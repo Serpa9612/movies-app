@@ -18,8 +18,11 @@ function reducer(state, action){
   console.log(action);
   switch(action.type){
     case 'SET_MOVIE_LIST':{
-      return {...state, movieList: action.payload, ...state, seriesList: action.payload} 
+      return {...state, movieList: action.payload}
     }    
+    case 'SET_SERIES_LIST':{
+      return {...state, seriesList: action.payload}
+    } 
     default:{
       return state
     }
