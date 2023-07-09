@@ -8,6 +8,12 @@ const SeriesStyled = styled.div`
     border-radius: 5px;
     margin: 1em;
     box-shadow: 0 0 7px 2px rgba(0,0,0,.03);
+
+    &:hover .details{
+        cursor: pointer;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid gray;
+    }
     
     img{        
         width: 100%;
@@ -41,7 +47,7 @@ images
     return(
         
         <SeriesStyled>
-        <div id="Movie"> 
+        <div className="details"> 
             <h2 className="Big"><strong>Series</strong></h2>
             <h2>{title}</h2>
             <p>{releaseYear}</p>

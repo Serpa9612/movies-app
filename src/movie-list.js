@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import { styled } from "styled-components"
 import Movie from "./movie"
 import {useSelector, useDispatch} from 'react-redux'
 
 const MovieListStyled = styled.div`
-    display: grid;
-    grid-row-gap: 2.3em;
-    grid-template-columns:   
-    grid-auto-flow: columns;
-    grid-column-gap: 80px;
-    grid-template-columns: repeat(auto-fill, minMax(0, 264px));
-    background: var(--background);
-    justify-content: center;
-    border: 1px solid red;
-    padding: 0.01em 0.01em;
+display: grid;
+grid-row-gap: 2.3em;
+grid-template-columns:   
+grid-auto-flow: columns;
+grid-column-gap: 80px;
+grid-template-columns: repeat(auto-fill, minMax(0, 264px));
+background: var(--background);
+justify-content: center;
+border: 1px solid red;
+padding: 0.01em 0.01em;
 `
 function MovieList(){
     const dispatch = useDispatch()

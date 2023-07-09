@@ -8,6 +8,8 @@ import SeriesList from './series-list';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Acces from './Acces';
+import { BrowserRouter } from 'react-router-dom';
+import Midlevar from './Midlevar';
 
 const initialState = {
   movieList:[],
@@ -35,19 +37,24 @@ const store = createStore(reducer, initialState)
 
 function App() {
   return (
-    
-    <Provider store={store}>
-          <div>
-                 <Navbar/>
-          </div>
-         <div>
-              <Acces/>
-         </div>         
+    <BrowserRouter>
+      <Provider store={store}>
+            <div>
+                  <Navbar/>
+            </div>
+            <div>
+            <Midlevar/>
+            </div> 
+            <div>
+                    <Acces/>
+              </div>  
+              <footer> 
+              <Footer/>
+              </footer>    
            
-         <footer>
-             <Footer/>
-         </footer>
-    </Provider>
+           
+      </Provider>
+    </BrowserRouter>
        
   );
 }

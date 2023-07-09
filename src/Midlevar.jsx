@@ -11,12 +11,22 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 
+@media(max-width: 759px){
 h2{
     color: white;    
     font-weight: 400px;
-    font-size: 2.5rem;
+    font-size: 1.3rem;
     margin-left: 2rem;
 }
+}
+@media(min-width: 759px){
+  h2{
+      color: white;    
+      font-weight: 400px;
+      font-size: 1.3rem;
+      margin-left: 2rem;
+  }
+  }
 `
 
 function Midlevar() {

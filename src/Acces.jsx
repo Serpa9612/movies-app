@@ -1,41 +1,66 @@
 import React from 'react'
 import { styled } from "styled-components"
-import SeriesList from './series-list'
-import MovieList from './movie-list'
+
 
 
 const AccesStyled = styled.div`
-
-img{  
-    
-    border-radius: 3%;  
-    width: 30%;
-    float: left;
-    margin-left: 10%;
-    text-align: center;
-    object-fit: cover;               
+@media(max-width: 759px){
+display: grid;
+grid-row-gap: 1rem;
+grid-template-columns:   
+grid-auto-flow: columns;
+grid-column-gap: 1rem;
+grid-template-columns: repeat(auto-fill, minMax(0, 125px)); 
+border-radius: 5px;
+margin: 2rem;
+box-shadow: 0 0 7px 2px rgba(0,0,0,.03);
 }
-border: soli;
-box-size: 10 rem;
+@media(min-width: 759px){
+    display: grid;
+    grid-row-gap: 2rem;
+    grid-template-columns:   
+    grid-auto-flow: columns;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minMax(0, 150px)); 
+    border-radius: 5px;
+    margin: 5rem;
+    box-shadow: 0 0 7px 2px rgba(0,0,0,.03);
+    }
+
+
+img{      
+    width: 100%;    
+    object-fit: cover; 
+    &:hover {
+        cursor: pointer;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid gray;
+    } 
+                
+}
+
+
 `
 
 function Acces() {
 
   return (
     
-        <AccesStyled>          
+        <AccesStyled>  
             
+            <a>            
+            <img className="img1" src="https://i.ibb.co/4fkTz0H/Capture1.png"     alt="This is a one picture about movies" title='Series'/>  
+            Popular Series
+            </a> 
+            
+                  
+            <a>            
+             <img src="https://i.ibb.co/bgKsXsn/Capture2.png"     alt="This is a one picture about series" title='Series'/>  
 
-            
+             Popular Movies
+             </a> 
 
-
-            {/* <img src="https://img.freepik.com/vector-premium/clapper-pelicula-pelicula-icono-diseno_24877-23150.jpg?w=2000"     alt="This is a one picture about movies" /> 
-            
-            
-              
-                   
-             <img src="https://img.freepik.com/vector-premium/clapper-pelicula-pelicula-icono-diseno_24877-23150.jpg?w=2000"     alt="This is a one picture about series" />    */}
-            
+             
                        
         </AccesStyled>
     

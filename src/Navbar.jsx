@@ -2,54 +2,38 @@ import React, {useState} from "react"
 import { styled } from "styled-components"
 import BurButton from './BurguerButton'
 
-
-
-
-function Navbar() {
-  const [clicked, setClicked] = useState(false)
-  const handleClick = () => {
-    setClicked(!clicked)
-    //Chance of state  True to false or !=
-  }
-  return (
-    <nav>
-      <NavContainer>
-        <h2>
-          DEMO <span>Streaming</span>
-        </h2>
-        <div className={`links ${clicked ? 'active' : ''}`}>
-          <a href = "/">LogIn</a>
-          <button> Start your free trial </button>          
-        </div>
-        
-        <div className='burguer'>
-        <BurButton clicked = {clicked} handleClick = {handleClick}/>
-        </div>        
-      </NavContainer>
-    </nav>
-  )
-}
-
-export default Navbar
-
-
 const NavContainer = styled.nav`
+@media(max-width: 759px){
   h2{
     color: white;
     font-weight: 400px;
-    font-size: 2.5rem;
-    margin-left: 2rem;
+    font-size: 1.3rem;
+    margin-left: 1.5rem;    
     span{    
     font-weight: bold;
     } 
   }
+}
+@media(min-width: 760px){
+  h2{
+    color: white;
+    font-weight: 400px;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;    
+    span{    
+    font-weight: bold;
+    } 
+  }
+}
+
   
   a{    
     color: white;
     text-text-decoration: none;
     margin-right: 1rem;
   }
-  padding: .6rem;
+  padding: 0;
+  margin: 0;
   background-color: #0970C2;
   display: flex;
   align-items: center;
@@ -76,6 +60,7 @@ const NavContainer = styled.nav`
         display: inline;
       }
       button{  
+      cursor: pointer;
        position: relative;
        border-radius: 6px; 
        color: white;
@@ -109,9 +94,41 @@ const NavContainer = styled.nav`
     }
     
   }
+
+  
   .burguer{
     @media(min-width: 768px){
       display: none;
     }
   }
 `
+
+
+function Navbar() {
+  const [clicked, setClicked] = useState(false)
+  const handleClick = () => {
+    setClicked(!clicked)
+    //Chance of state  True to false or !=
+  }
+  return (
+    <nav>
+      <NavContainer>
+        <h2>
+          DEMO <span>Streaming</span>
+        </h2>
+        <div className={`links ${clicked ? 'active' : ''}`}>
+          <a href = "/">LogIn</a>
+          <button> Start your free trial </button>          
+        </div>
+        
+        <div className='burguer'>
+        <BurButton clicked = {clicked} handleClick = {handleClick}/>
+        </div>        
+      </NavContainer>
+    </nav>
+  )
+}
+
+export default Navbar
+
+
