@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-
-import MovieList from "./movie-list"
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
 import SeriesList from './series-list';
@@ -10,6 +8,7 @@ import Footer from './Footer';
 import Acces from './Acces';
 import { BrowserRouter } from 'react-router-dom';
 import Midlevar from './Midlevar';
+import MovieList from './movie-list';
 
 const initialState = {
   movieList:[],
@@ -45,9 +44,10 @@ function App() {
             <div>
             <Midlevar/>
             </div> 
-            <div>
+            {/* <div>
                     <Acces/>
-              </div>  
+              </div>   */}
+              <div><MovieList/></div>              
               <footer> 
               <Footer/>
               </footer>    
