@@ -24,7 +24,23 @@ function MovieList(){
             return true;        
         }
     })
-    console.log(resultsQuery); 
+    
+    const orderQuery = resultsQuery.sort((a,b)=>{
+        a = a.title;
+        b = b.title;
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        if(a == b){
+            return 0;
+        }else if(a < b){
+            return -1;
+        }else{
+            return 1;
+        }
+    })
+
+    const result = orderQuery.slice(0,20);
+     
 
        
     
@@ -50,7 +66,7 @@ function MovieList(){
         return(
             <MovieListStyled>
                 {                    
-                    resultsQuery.map(({title, releaseYear, description, programType, images})=>{
+                    result.map(({title, releaseYear, description, programType, images})=>{
                         
                         return(
                         <Movie

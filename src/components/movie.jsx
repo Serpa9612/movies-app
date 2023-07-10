@@ -13,13 +13,15 @@ button {
     &:hover .details{
     cursor: pointer;
     border-radius: 0 0 5px 5px;
-    border: 1px solid gray;
+    border: 1px solid gray;    
 }
 }
 
 img{        
     width: 100%;
-    object-fit: cover;   
+    object-fit: cover;  
+    
+    }
 }
 
 .Big{

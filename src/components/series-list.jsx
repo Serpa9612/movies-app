@@ -25,7 +25,23 @@ function SeriesList(){
             return true;        
         }
     })
-    console.log(resultsQuery);
+
+    const orderQuery = resultsQuery.sort((a,b)=>{
+        a = a.title;
+        b = b.title;
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        if(a == b){
+            return 0;
+        }else if(a < b){
+            return -1;
+        }else{
+            return 1;
+        }
+    })
+
+    const result = orderQuery.slice(0,20);
+    
     //const [movieList, setMovieList] = useState([])
     useEffect(()=>{
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
@@ -47,7 +63,7 @@ function SeriesList(){
         return(
             <SeriesListStyled>
                 {                    
-                    resultsQuery.map(({title, releaseYear, description, programType, images})=>{
+                    result.map(({title, releaseYear, description, programType, images})=>{
                         return(
                         <Series
                             title = {title}
