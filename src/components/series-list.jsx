@@ -21,7 +21,7 @@ function SeriesList(){
     console.log('The state of my app is:, ', seriesList)
 
     const resultsQuery = seriesList.filter((type)=>{    
-        if(type.programType == "series"){
+        if(type.programType == "series" && type.releaseYear >= 2010 ){
             return true;        
         }
     })

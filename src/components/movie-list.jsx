@@ -20,7 +20,7 @@ function MovieList(){
     const movieList = useSelector((state) => state.movieList)
 
     const resultsQuery = movieList.filter((type)=>{    
-        if(type.programType == "movie"){
+        if(type.programType == "movie" && type.releaseYear >= 2010){
             return true;        
         }
     })
