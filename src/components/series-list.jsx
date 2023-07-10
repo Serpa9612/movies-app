@@ -1,24 +1,31 @@
 import React, {useEffect} from "react"
 import { styled } from "styled-components"
-import Movie from "./movie"
+import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
 
-const MovieListStyled = styled.div`
-display: grid;
-grid-row-gap: 2.3em;
-grid-template-columns:   
-grid-auto-flow: columns;
-grid-column-gap: 80px;
-grid-template-columns: repeat(auto-fill, minMax(0, 264px));
-background: var(--background);
-justify-content: center;
-border: 1px solid red;
-padding: 0.01em 0.01em;
+const SeriesListStyled = styled.div`
+    display: grid;
+    grid-row-gap: 2.3em;
+    grid-template-columns:   
+    grid-auto-flow: columns;
+    grid-column-gap: 80px;
+    grid-template-columns: repeat(auto-fill, minMax(0, 264px));
+    background: var(--background);
+    justify-content: center;
+    border: 1px solid red;
+    padding: 0.01em 0.01em;
 `
-function MovieList(){
+function SeriesList(){
     const dispatch = useDispatch()
-    const movieList = useSelector((state) => state.movieList)
-    console.log('The state of my app is:, ', movieList)
+    const seriesList = useSelector((state) => state.seriesList)
+    console.log('The state of my app is:, ', seriesList)
+
+    const resultsQuery = seriesList.filter((type)=>{    
+        if(type.programType == "series"){
+            return true;        
+        }
+    })
+    console.log(resultsQuery);
     //const [movieList, setMovieList] = useState([])
     useEffect(()=>{
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
@@ -27,7 +34,7 @@ function MovieList(){
         })
         .then((list)=>{
             dispatch({
-                type: 'SET_MOVIE_LIST',
+                type: 'SET_SERIES_LIST',
                 payload: list.entries
             })
             //setMovieList(data.entries)
@@ -38,11 +45,11 @@ function MovieList(){
         })
     }, [dispatch])
         return(
-            <MovieListStyled>
+            <SeriesListStyled>
                 {                    
-                    movieList.map(({title, releaseYear, description, programType, images})=>{
+                    resultsQuery.map(({title, releaseYear, description, programType, images})=>{
                         return(
-                        <Movie
+                        <Series
                             title = {title}
                             key = {title}
                             releaseYear = {releaseYear}
@@ -55,8 +62,8 @@ function MovieList(){
                 }
                          
 
-            </MovieListStyled>
+            </SeriesListStyled>
         )
     }
     
-    export default MovieList
+    export default SeriesList

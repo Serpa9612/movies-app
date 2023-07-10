@@ -15,10 +15,18 @@ const OverLay = styled.div`
 const ContainerModal =  styled.div`
     width: 500px;
     min-height: 100px;
+    text-align: center;  
     background: #fff;
     position: relative;
     border-radius: 15px;    
     padding: 20px;
+    font-size: 0.7rem;
+    -webkit-box-shadow: -1px 4px 100px 32px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 100px 32px rgba(0,0,0,0.75);
+    box-shadow: -1px 4px 100px 32px rgba(0,0,0,0.75);
+    img{
+        max-width: 40%;
+    }
 
 `
 
@@ -26,8 +34,8 @@ const HeaderModal = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #E8E8E8;
 
     h3{

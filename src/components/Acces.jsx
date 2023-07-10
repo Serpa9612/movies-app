@@ -3,6 +3,7 @@ import { styled } from "styled-components"
 
 
 
+
 const AccesStyled = styled.div`
 @media(max-width: 759px){
 display: grid;
@@ -48,21 +49,23 @@ function Acces() {
     
         <AccesStyled>  
             
-            <a>            
+            <a href='/Series'>            
             <img className="img1" src="https://i.ibb.co/4fkTz0H/Capture1.png"     alt="This is a one picture about movies" title='Series'/>  
             Popular Series
             </a> 
             
                   
-            <a>            
+            <a href='/Movies'>            
              <img src="https://i.ibb.co/bgKsXsn/Capture2.png"     alt="This is a one picture about series" title='Series'/>  
 
              Popular Movies
-             </a> 
+             </a>                    
+            
 
              
                        
         </AccesStyled>
+           
     
 )}
 

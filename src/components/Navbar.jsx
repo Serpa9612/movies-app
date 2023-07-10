@@ -117,8 +117,9 @@ function Navbar() {
           DEMO <span>Streaming</span>
         </h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a href = "/">LogIn</a>
-          <button> Start your free trial </button>          
+          <a href="/Login">Log In</a>
+          <a href="/SingUp"><button href="/SingUp"> Start your free trial </button></a>
+
         </div>
         
         <div className='burguer'>

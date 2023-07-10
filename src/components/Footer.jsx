@@ -5,18 +5,25 @@ const FooterStyled = styled.div`
 
 
 color: white;
-position: fixed;
 left: 0;
 width: 100%;
 bottom: 0;
 background-color: #2E3133;
 height: 19%;
+cursor: pointer;
 
 
+.ul1 {
+    margin-block-end: 0px;
+}
 
 @media(max-width: 759px){
+
+    position: absolute;
+
 .ul1{
     display: flex; 
+    
     
     .ul2{
         margin-left: 0;
@@ -24,6 +31,7 @@ height: 19%;
 }
 }
 @media(min-width: 759px){
+    position: fixed;
     .ul1{
         display: flex;    
         align-items: center;
@@ -41,6 +49,7 @@ height: 19%;
     }
     a{        
         font-size: 0.8rem;
+        color: white;
     }
     .ul1 img{    
         width: 100%;    
@@ -71,7 +80,7 @@ return(
     <FooterStyled>
         <footer className="Footer1">
             <nav>
-            <a className="one">Home |</a>
+            <a className="one" href="/" >Home |</a>
             <a>Terms and conditions |</a>
             <a>Privacy Policy |</a>
             <a>Collection Statements |</a>
@@ -83,23 +92,23 @@ return(
             </nav>
 
             <ul className="ul1">
-            <a>
+            <a href="https://es-la.facebook.com/">
                 <img src="https://i.ibb.co/p4jC3FJ/Facebook.png" alt="This is an icon to Facebook" />
             </a>   
-            <a>
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Flogin%3Flang%3Des">
                 <img src="https://i.ibb.co/QKVLNsS/twitter.png" alt="This is an icon to Twitter" />
             </a>       
-            <a>
+            <a href="https://www.instagram.com/">
                 <img src="https://i.ibb.co/ZK3dtXG/Instagram.png" alt="This is an icon to Instagram" />
             </a>
             <ul className="ul2">                       
-            <a>
+            <a href="https://www.apple.com/co/app-store/">
                 <img src="https://i.ibb.co/RjP012L/Appstore.png" alt="This is an icon to app store" />
             </a>
-            <a>
+            <a href="https://play.google.com/store/games?hl=es_419&gl=US&pli=1">
                 <img src="https://i.ibb.co/FDV9n6q/Google-Play.png" alt="This is an icon to Google Play" />
             </a>            
-            <a>
+            <a href="https://www.microsoft.com/es-ad/store/b/home">
                 <img src="https://i.ibb.co/z2rYVxD/Microsoft.png" alt="This is an icon to Microsoft" />
             </a>
             </ul> 

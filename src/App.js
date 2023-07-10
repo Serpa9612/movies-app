@@ -2,13 +2,16 @@ import React from 'react';
 import './App.css';
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
-import SeriesList from './series-list';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import Acces from './Acces';
-import { BrowserRouter } from 'react-router-dom';
-import Midlevar from './Midlevar';
-import MovieList from './movie-list';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Acces from './components/Acces'
+import Navbar from './components/Navbar'
+import Midlevar from './components/Midlevar'
+import Footer from './components/Footer'
+import Login from './components/login'
+import SingUp from './components/SingUp'
+import MovieList from './components/movie-list'
+import SeriesList from './components/series-list'
+
 
 const initialState = {
   movieList:[],
@@ -16,7 +19,7 @@ const initialState = {
 }
 
 function reducer(state, action){
-  console.log(action);
+  //console.log(action);
   switch(action.type){
     case 'SET_MOVIE_LIST':{
       return {...state, movieList: action.payload}
@@ -37,20 +40,23 @@ const store = createStore(reducer, initialState)
 function App() {
   return (
     <BrowserRouter>
-      <Provider store={store}>
+      <Provider store = {store}>
             <div>
-                  <Navbar/>
+              <Navbar/>
             </div>
             <div>
-            <Midlevar/>
-            </div> 
-            {/* <div>
-                    <Acces/>
-              </div>   */}
-              <div><MovieList/></div>              
-              <footer> 
+              <Midlevar/>
+            </div>              
+            <Routes>
+              <Route path = "/" element={<Acces/>}/>
+              <Route path = "/Login" element={<Login/>}/>
+              <Route path = "/SingUp" element={<SingUp/>}/>
+              <Route path = "/Series" element={<SeriesList/>}/>
+              <Route path = "/Movies" element={<MovieList/>}/>
+            </Routes>                            
+            <footer> 
               <Footer/>
-              </footer>    
+            </footer>    
            
            
       </Provider>

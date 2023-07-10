@@ -1,9 +1,9 @@
 import React, {useEffect} from "react"
 import { styled } from "styled-components"
-import Series from "./series"
+import Movie from "./movie"
 import {useSelector, useDispatch} from 'react-redux'
 
-const SeriesListStyled = styled.div`
+const MovieListStyled = styled.div`
     display: grid;
     grid-row-gap: 2.3em;
     grid-template-columns:   
@@ -15,10 +15,20 @@ const SeriesListStyled = styled.div`
     border: 1px solid red;
     padding: 0.01em 0.01em;
 `
-function SeriesList(){
+function MovieList(){
     const dispatch = useDispatch()
-    const seriesList = useSelector((state) => state.seriesList)
-    console.log('The state of my app is:, ', seriesList)
+    const movieList = useSelector((state) => state.movieList)
+
+    const resultsQuery = movieList.filter((type)=>{    
+        if(type.programType == "movie"){
+            return true;        
+        }
+    })
+    console.log(resultsQuery); 
+
+       
+    
+    //console.log('The state of my app is:, ', movieList)
     //const [movieList, setMovieList] = useState([])
     useEffect(()=>{
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
@@ -27,7 +37,7 @@ function SeriesList(){
         })
         .then((list)=>{
             dispatch({
-                type: 'SET_SERIES_LIST',
+                type: 'SET_MOVIE_LIST',
                 payload: list.entries
             })
             //setMovieList(data.entries)
@@ -38,25 +48,27 @@ function SeriesList(){
         })
     }, [dispatch])
         return(
-            <SeriesListStyled>
+            <MovieListStyled>
                 {                    
-                    seriesList.map(({title, releaseYear, description, programType, images})=>{
+                    resultsQuery.map(({title, releaseYear, description, programType, images})=>{
+                        
                         return(
-                        <Series
+                        <Movie
                             title = {title}
                             key = {title}
                             releaseYear = {releaseYear}
                             description = {description}
                             programType = {programType}
                             images = {images['Poster Art'].url}
-                        />          
+                        /> 
+                                 
                         )
                     })
                 }
                          
 
-            </SeriesListStyled>
+            </MovieListStyled>
         )
     }
     
-    export default SeriesList
+    export default MovieList
