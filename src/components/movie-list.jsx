@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 import Movie from "./movie"
 import {useSelector, useDispatch} from 'react-redux'
 import swal from "sweetalert"
-import Loading from "./Loading"
+
 
 
 const MovieListStyled = styled.div`
@@ -76,7 +76,11 @@ function MovieList(){
         return(
             <MovieListStyled>
                 <div id="loading-frame">
-                    <Loading/>
+                    <h1>Loading...</h1>
+                    <br />
+                    <div>
+                        hjkhkjhjklhlk
+                    </div>
                 </div>
                 {                    
                     result.map(({title, releaseYear, description, programType, images})=>{

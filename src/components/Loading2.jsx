@@ -1,7 +1,6 @@
 import React, {useEffect} from "react"
 import { styled } from "styled-components"
-import "bootstrap/dist/css/bootstrap.min.css"
-import { ClipLoader } from "react-spinners"
+
 
 const LoadingStyled = styled.div`
     

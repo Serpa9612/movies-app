@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
 import swal from "sweetalert"
-import Loading from "./Loading"
+
 
 const SeriesListStyled = styled.div`
     display: grid;
@@ -14,8 +14,10 @@ const SeriesListStyled = styled.div`
     grid-template-columns: repeat(auto-fill, minMax(0, 264px));
     background: var(--background);
     justify-content: center;
-    border: 1px solid red;
     padding: 0.01em 0.01em;
+
+
+
 `
 function SeriesList(){
     const showAlert =()=>{
@@ -73,7 +75,10 @@ function SeriesList(){
         return(
             <SeriesListStyled>
                 <div id="loading-frame">
-                <Loading/>
+                <h1>Loading...</h1>
+                    <div>
+                        <img src="../loading.gif" />
+                    </div>
                  </div>   
                 
                 {        
