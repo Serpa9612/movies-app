@@ -79,7 +79,7 @@ function Login() {
     function handleSubmit(event){
         event.preventDefault()
         axios.post('http://192.168.1.45:8000/login', {post})        
-        .then(response => alert(response.data.result))
+        .then(response => console.log(response))
         .catch(err => alert(err))
     }
     return (

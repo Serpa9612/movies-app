@@ -53,7 +53,9 @@ function App() {
               <Midlevar/>
             </div>              
             <Routes>
-              <Route path = "/" element={<Access/>}/>
+              
+              <Route path = "/" element={<Login/>}/>
+              <Route path = "/Home" element={<Access/>}/>
               <Route path = "/Login" element={<Login/>}/>
               <Route path = "/SingUp" element={<SingUp/>}/>
               <Route path = "/Series" element={<SeriesList/>}/>

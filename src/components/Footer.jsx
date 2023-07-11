@@ -85,7 +85,7 @@ return(
         <div class="row copyright">
         <div class="footer-menu">
 
-        <a href="/">Home</a>
+        <a href="/Home">Home</a>
         <span>|</span>
         <a>Terms and Conditions</a>
         <span>|</span>

@@ -67,10 +67,10 @@ h2 {
 
 function SingUp() {
     const [post, setPost] = useState({
-        Name: "",
-        LastName: "",
+        name: "",
+        lastName: "",
         email:"",
-        Password:""
+        password:""
 
     })
     const handleInput = (event)=>{
@@ -92,11 +92,11 @@ function SingUp() {
                 <h2>
                     First Name
                 </h2>
-                <input  name='Name' type="text" class="input" onChange={handleInput} />
+                <input  name='name' type="text" class="input" onChange={handleInput} />
                 <h2>
                     Last Name
                 </h2>
-                <input  name='LastName' type="text" class="input" onChange={handleInput} />
+                <input  name='lastName' type="text" class="input" onChange={handleInput} />
                 <h2>
                     E-mail
                 </h2>
@@ -105,7 +105,7 @@ function SingUp() {
                     <h2>
                         Password
                     </h2>
-                    <input name='Password' type="password" class="input" onChange={handleInput} />
+                    <input name='password' type="password" class="input" onChange={handleInput} />
                 </div>
 
                 <div>
