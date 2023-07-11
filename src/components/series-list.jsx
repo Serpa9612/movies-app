@@ -46,11 +46,15 @@ function SeriesList(){
     })
 
     const result = orderQuery.slice(0,20);
+
     
-    //const [movieList, setMovieList] = useState([])
+    
+    let filtered ;
+    
+        //const [movieList, setMovieList] = useState([])
         useEffect(()=>{
-        //fetch("http://192.168.1.45:8000/programs")
-        fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
+        fetch("http://192.168.1.45:8000/programs")
+        //fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
         .then((response)=>{
            return response.json()
         })
@@ -73,16 +77,20 @@ function SeriesList(){
                  </div>   
                 
                 {        
-                         
-                    result.map(({title, releaseYear, description, programType, images})=>{
+                    
+                    result.map(({title, releaseYear, description, programType, images})=>{   
+                                                                    
                         return(
+                        
                         <Series
+
                             title = {title}
                             key = {title}
                             releaseYear = {releaseYear}
                             description = {description}
-                            programType = {programType}
-                            images = {images['Poster Art'].url}
+                            programType = {programType}                               
+                            images = {images['Poster Art'].url}                                                                     
+                            
                         />          
                         )
                     })

@@ -59,14 +59,14 @@ images
             state = {modalState}
             chanceState = {chanceModalState}
             >
-            <h2>{title}</h2>  
+            <h2>{title}</h2>            
             <p>{description}</p>            
             <p>{releaseYear}</p>            
-            <p><strong>{programType}</strong></p>
+            <p><strong>{programType}</strong></p>            
             <img src={images}></img> 
             </Modal>            
             <button onClick={()=> chanceModalState(!modalState)}>
-            <img  loading="lazy" src={images}></img> 
+            <img  loading="lazy" src={images} alt="https://i.ibb.co/bgKsXsn/Capture2.png"></img> 
             </button> 
             </div>
         </div>      

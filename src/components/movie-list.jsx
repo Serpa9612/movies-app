@@ -51,20 +51,16 @@ function MovieList(){
         }
     })
 
-    const result = orderQuery.slice(0,20);  
-
-       
+    const result = orderQuery.slice(0,20);       
     
     
         useEffect(()=>{
-        //fetch("http://192.168.1.45:8000/programs")
-        fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
-        .then((response)=>{
-            
+        fetch("http://192.168.1.45:8000/programs")
+        //fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
+        .then((response)=>{            
            return response.json()
         })
         .then((list)=>{
-
             document.getElementById("loading-frame").style.display = "none";
             dispatch({
                 type: 'SET_MOVIE_LIST',
