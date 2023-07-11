@@ -14,10 +14,14 @@ import SeriesList from './components/series-list'
 
 
 
+
 const initialState = {
   movieList:[],
   seriesList: []
+  
 }
+
+
 
 function reducer(state, action){
   //console.log(action);

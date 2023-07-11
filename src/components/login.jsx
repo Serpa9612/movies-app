@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { styled } from "styled-components"
+import axios from 'axios'
 
 const LoginStyled = styled.div`
 
@@ -63,21 +64,37 @@ const LoginStyled = styled.div`
 
 `
 
+
+
 function Login() {
+    const [post, setPost] = useState({
+        User: "",
+        Password: ""
+    })
+    const handleInput = (event)=>{
+        setPost({...post, [event.target.value]: event.target.event})
+    }
+    
+    function handleSubmit(event){
+        event.preventDefault()
+        axios.post('http://192.168.1.45:8000/login', {post})
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    }
     return (
         <LoginStyled>
-            <form className="input-group">
+            <form onSubmit={handleSubmit} className="input-group">
                 <h1>Log In</h1>
                 <h2>
                     User
                 </h2>
-                <input type="text" class="input" />
+                User:<input name='User' onChange={handleInput} type="text" class="input" />
                 <h2>
                     Password
                 </h2>
-                <input type="password" class="input" />
+                Password:<input name='Password' onChange={handleInput} type="password" class="input" />
                 <div >
-                    <a href='#' class="btn btn-1">
+                    <a href='' class="btn btn-1">
                         Sing In
                         <span></span>
                         <span></span>
@@ -90,5 +107,7 @@ function Login() {
 }
 
 export default Login
+
+//"http://192.168.1.45:8000/login"
 
 

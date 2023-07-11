@@ -6,6 +6,7 @@ import swal from "sweetalert"
 
 
 
+
 const MovieListStyled = styled.div`
     display: grid;
     grid-row-gap: 2.3em;
@@ -76,12 +77,11 @@ function MovieList(){
         return(
             <MovieListStyled>
                 <div id="loading-frame">
-                    <h1>Loading...</h1>
-                    <br />
+                <h1>Loading...</h1>
                     <div>
-                        hjkhkjhjklhlk
+                        <img src="../loading.gif" />
                     </div>
-                </div>
+                 </div>
                 {                    
                     result.map(({title, releaseYear, description, programType, images})=>{
                         
