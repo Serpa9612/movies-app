@@ -45,33 +45,32 @@ img{
 `
 
 function Access() {
-    const [loading, setLoading] = useState();
-    const cambiarEstado=()=>{
-        setLoading(true);
-        setTimeout(()=>{
-            setLoading(false);    
-        }, 5000)
-    }
+    // const [loading, setLoading] = useState();
+    // const changeState=()=>{
+    //     setLoading(true);
+    //     setTimeout(()=>{
+    //         setLoading(false);    
+    //     }, 5000)
+    // }
 
-
-    if(loading){
-        return(
-            <Loading/>
-        )
-    }else{   
+    // if(loading){
+    //     return(
+    //     <Loading/>
+    //     )
+    // }else{   
 
   return (
-    
+    //onClick={()=>changeState()}
         <AccessStyled>
             
             
-            <a onClick={()=>cambiarEstado()} href='/Series'>            
+            < a  href='/Series'>            
             <img className="img1" src="https://i.ibb.co/4fkTz0H/Capture1.png"     alt="This is a one picture about movies" title='Series'/>  
             Popular Series
             </a> 
             
                   
-            <a onClick={()=>cambiarEstado()} href='/Movies'>            
+            <a  href='/Movies'>            
              <img src="https://i.ibb.co/bgKsXsn/Capture2.png"     alt="This is a one picture about series" title='Series'/>  
 
              Popular Movies
@@ -80,6 +79,6 @@ function Access() {
         </AccessStyled>
            
     
-);}}
+);}
 
 export default Access

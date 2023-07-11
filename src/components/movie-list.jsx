@@ -3,6 +3,7 @@ import { styled } from "styled-components"
 import Movie from "./movie"
 import {useSelector, useDispatch} from 'react-redux'
 import swal from "sweetalert"
+import Loading from "./Loading"
 
 
 const MovieListStyled = styled.div`
@@ -14,12 +15,17 @@ const MovieListStyled = styled.div`
     grid-template-columns: repeat(auto-fill, minMax(0, 264px));
     background: var(--background);
     justify-content: center;
-    border: 1px solid red;
     padding: 0.01em 0.01em;
+
+
+    #loading-frame {
+        padding-top: 30px;
+    }
+
 `
 function MovieList(){
     const showAlert =()=>{
-        swal("Oops, something went wrong ")
+        swal("Oops.., something went wrong ")
     }
 
     const dispatch = useDispatch()
@@ -49,27 +55,33 @@ function MovieList(){
 
        
     
-    //console.log('The state of my app is:, ', movieList)
-    //const [movieList, setMovieList] = useState([])
-    useEffect(()=>{
+    
+        useEffect(()=>{
+        //fetch("http://192.168.1.45:8000/programs")
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
         .then((response)=>{
+            
            return response.json()
         })
         .then((list)=>{
+
+            document.getElementById("loading-frame").style.display = "none";
             dispatch({
                 type: 'SET_MOVIE_LIST',
                 payload: list.entries
             })
-            //setMovieList(data.entries)
-            //console.log(list.entries)
+            
         })
         .catch(()=>{
-            showAlert();    
+            showAlert();
+            document.getElementById("loading-frame").style.display = "none";
         })
     }, [dispatch])
         return(
             <MovieListStyled>
+                <div id="loading-frame">
+                    <Loading/>
+                </div>
                 {                    
                     result.map(({title, releaseYear, description, programType, images})=>{
                         
@@ -86,8 +98,6 @@ function MovieList(){
                         )
                     })
                 }
-                         
-
             </MovieListStyled>
         )
     }

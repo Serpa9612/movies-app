@@ -3,6 +3,7 @@ import { styled } from "styled-components"
 import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
 import swal from "sweetalert"
+import Loading from "./Loading"
 
 const SeriesListStyled = styled.div`
     display: grid;
@@ -22,7 +23,7 @@ function SeriesList(){
     }
     const dispatch = useDispatch()
     const seriesList = useSelector((state) => state.seriesList)
-    console.log('The state of my app is:, ', seriesList)
+    
 
     const resultsQuery = seriesList.filter((type)=>{    
         if(type.programType == "series" && type.releaseYear >= 2010 ){
@@ -47,26 +48,32 @@ function SeriesList(){
     const result = orderQuery.slice(0,20);
     
     //const [movieList, setMovieList] = useState([])
-    useEffect(()=>{
+        useEffect(()=>{
+        //fetch("http://192.168.1.45:8000/programs")
         fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
         .then((response)=>{
            return response.json()
         })
         .then((list)=>{
+            document.getElementById("loading-frame").style.display = "none";
             dispatch({
                 type: 'SET_SERIES_LIST',
                 payload: list.entries
-            })
-            //setMovieList(data.entries)
-            //console.log(list.entries)
+            })            
         })
         .catch(()=>{
             showAlert();
+            document.getElementById("loading-frame").style.display = "none";
         })
     }, [dispatch])
         return(
             <SeriesListStyled>
-                {                    
+                <div id="loading-frame">
+                <Loading/>
+                 </div>   
+                
+                {        
+                         
                     result.map(({title, releaseYear, description, programType, images})=>{
                         return(
                         <Series
