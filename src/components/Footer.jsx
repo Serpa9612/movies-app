@@ -12,14 +12,15 @@ background-color: #2E3133;
 height: 19%;
 cursor: pointer;
 
+a {
+    color: white;
+}
 
 .ul1 {
     margin-block-end: 0px;
 }
 
 @media(max-width: 759px){
-
-    position: absolute;
 
 .ul1{
     display: flex; 
@@ -62,11 +63,13 @@ cursor: pointer;
         
 }
 @media(min-width: 759px){
+    color: white;
     .one{
         margin-left: 5rem;
     }
     a{
         margin-left: 2rem;
+        margin-right: 2rem;
         font-size: 1rem;
     }
     .copy{
@@ -79,17 +82,30 @@ function Footer(){
 return(
     <FooterStyled>
         <footer className="Footer1">
-            <nav>
-            <a className="one" href="/" >Home |</a>
-            <a>Terms and conditions |</a>
-            <a>Privacy Policy |</a>
-            <a>Collection Statements |</a>
-            <a>Help |</a>
-            <a>Manage Acount</a>
-            </nav>
-            <nav>
-                <a className="copy">Copyright 2016 DEMO Streaming.All Rights Reserved</a>
-            </nav>
+        <div class="row copyright">
+        <div class="footer-menu">
+
+        <a href="/">Home</a>
+        <span>|</span>
+        <a>Terms and Conditions</a>
+        <span>|</span>
+        <a>Privacy Policy</a>
+        <span>|</span>
+        <a>Collection Statement</a>
+        <span>|</span>
+        <a>Help</a>
+        <span>|</span>
+        <a>Manage Account</a>
+
+        </div>
+
+        <div>
+            <p>Copyright &copy; 2016 Streaming all rights reserved</p>
+        </div>
+
+        
+        </div>
+            
 
             <ul className="ul1">
             <a href="https://es-la.facebook.com/">

@@ -3,7 +3,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { createStore} from 'redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Acces from './components/Acces'
+import Access from './components/Access'
 import Navbar from './components/Navbar'
 import Midlevar from './components/Midlevar'
 import Footer from './components/Footer'
@@ -11,6 +11,7 @@ import Login from './components/login'
 import SingUp from './components/SingUp'
 import MovieList from './components/movie-list'
 import SeriesList from './components/series-list'
+
 
 
 const initialState = {
@@ -48,7 +49,7 @@ function App() {
               <Midlevar/>
             </div>              
             <Routes>
-              <Route path = "/" element={<Acces/>}/>
+              <Route path = "/" element={<Access/>}/>
               <Route path = "/Login" element={<Login/>}/>
               <Route path = "/SingUp" element={<SingUp/>}/>
               <Route path = "/Series" element={<SeriesList/>}/>

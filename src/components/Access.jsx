@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { styled } from "styled-components"
+import Loading from './Loading'
 
 
 
 
-const AccesStyled = styled.div`
+const AccessStyled = styled.div`
 @media(max-width: 759px){
 display: grid;
 grid-row-gap: 1rem;
@@ -43,30 +44,42 @@ img{
 
 `
 
-function Acces() {
+function Access() {
+    const [loading, setLoading] = useState();
+    const cambiarEstado=()=>{
+        setLoading(true);
+        setTimeout(()=>{
+            setLoading(false);    
+        }, 5000)
+    }
+
+
+    if(loading){
+        return(
+            <Loading/>
+        )
+    }else{   
 
   return (
     
-        <AccesStyled>  
+        <AccessStyled>
             
-            <a href='/Series'>            
+            
+            <a onClick={()=>cambiarEstado()} href='/Series'>            
             <img className="img1" src="https://i.ibb.co/4fkTz0H/Capture1.png"     alt="This is a one picture about movies" title='Series'/>  
             Popular Series
             </a> 
             
                   
-            <a href='/Movies'>            
+            <a onClick={()=>cambiarEstado()} href='/Movies'>            
              <img src="https://i.ibb.co/bgKsXsn/Capture2.png"     alt="This is a one picture about series" title='Series'/>  
 
              Popular Movies
-             </a>                    
-            
-
-             
+             </a>            
                        
-        </AccesStyled>
+        </AccessStyled>
            
     
-)}
+);}}
 
-export default Acces
+export default Access

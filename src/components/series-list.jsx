@@ -2,6 +2,7 @@ import React, {useEffect} from "react"
 import { styled } from "styled-components"
 import Series from "./series"
 import {useSelector, useDispatch} from 'react-redux'
+import swal from "sweetalert"
 
 const SeriesListStyled = styled.div`
     display: grid;
@@ -16,6 +17,9 @@ const SeriesListStyled = styled.div`
     padding: 0.01em 0.01em;
 `
 function SeriesList(){
+    const showAlert =()=>{
+        swal("Oops, something went wrong ")
+    }
     const dispatch = useDispatch()
     const seriesList = useSelector((state) => state.seriesList)
     console.log('The state of my app is:, ', seriesList)
@@ -57,7 +61,7 @@ function SeriesList(){
             //console.log(list.entries)
         })
         .catch(()=>{
-            console.log("We have an error")
+            showAlert();
         })
     }, [dispatch])
         return(

@@ -43,13 +43,13 @@ p{
 `
 function Movie({    
 
-title,
-releaseYear,
-description,
-programType,
-images
+    title,
+    releaseYear,
+    description,
+    programType,
+    images
 
-}){
+    }){
     const [modalState, chanceModalState] = useState(false);
 
     return(

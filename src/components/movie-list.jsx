@@ -2,6 +2,8 @@ import React, {useEffect} from "react"
 import { styled } from "styled-components"
 import Movie from "./movie"
 import {useSelector, useDispatch} from 'react-redux'
+import swal from "sweetalert"
+
 
 const MovieListStyled = styled.div`
     display: grid;
@@ -16,6 +18,10 @@ const MovieListStyled = styled.div`
     padding: 0.01em 0.01em;
 `
 function MovieList(){
+    const showAlert =()=>{
+        swal("Oops, something went wrong ")
+    }
+
     const dispatch = useDispatch()
     const movieList = useSelector((state) => state.movieList)
 
@@ -39,8 +45,7 @@ function MovieList(){
         }
     })
 
-    const result = orderQuery.slice(0,20);
-     
+    const result = orderQuery.slice(0,20);  
 
        
     
@@ -60,7 +65,7 @@ function MovieList(){
             //console.log(list.entries)
         })
         .catch(()=>{
-            console.log("We have an error")
+            showAlert();    
         })
     }, [dispatch])
         return(
