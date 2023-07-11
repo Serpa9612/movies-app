@@ -72,14 +72,15 @@ function Login() {
         Password: ""
     })
     const handleInput = (event)=>{
-        setPost({...post, [event.target.value]: event.target.event})
+        setPost({...post, [event.target.name]: event.target.value})
+        
     }
     
     function handleSubmit(event){
         event.preventDefault()
-        axios.post('http://192.168.1.45:8000/login', {post})
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
+        axios.post('http://192.168.1.45:8000/login', {post})        
+        .then(response => alert(response.data.result))
+        .catch(err => alert(err))
     }
     return (
         <LoginStyled>
@@ -88,17 +89,14 @@ function Login() {
                 <h2>
                     User
                 </h2>
-                User:<input name='User' onChange={handleInput} type="text" class="input" />
+                <input name='User' onChange={handleInput} type="text" class="input" />
                 <h2>
                     Password
                 </h2>
-                Password:<input name='Password' onChange={handleInput} type="password" class="input" />
+                <input     name='Password' onChange={handleInput} type="password" class="input" />
                 <div >
-                    <a href='' class="btn btn-1">
-                        Sing In
-                        <span></span>
-                        <span></span>
-                    </a>
+                    <button href='' class="btn btn-1">
+                        Sing In</button>           
                 </div>
             </form>
         </LoginStyled>

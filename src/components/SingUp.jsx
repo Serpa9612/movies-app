@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import { styled } from "styled-components"
+import axios from "axios"
 
 const SingUpStyled = styled.div`
 
@@ -36,69 +37,81 @@ h2 {
         transition: border 150ms cubic-bezier(0.4,0,0.2,1);
        }  
 
-    .btn{  
+    .btn{ 
 
-        display: block;
-        margin-top: 30px;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        border-radius: 20px;
-        padding: 5% 10%;
-        text-decoration: none;
-        color: black;            
-        transition: all 0.6s ease;
-        background-color: #AAABB2;
+        position: relative;
+            padding: 5% 10%;
+            text-decoration: none;
+            color: black;            
+            transition: all 0.6s ease;
+            top: 50px;
+            background-color: #AAABB2
     }  
 
     .btn-1{
-       border: 2px solid;
+        border: 3px solid;
     }
 
     .btn-1:hover{
         background-color: # 0970C2;
-        box-shadow: 0 0 20px #0970C2;
-        border-color: #0970C2;
+            box-shadow: 0 0 20px #0970C2;
+            border-color: #0970C2;
     }
 
     
 
-}
-
-
+}   
 
 
 `
 
 function SingUp() {
+    const [post, setPost] = useState({
+        Name: "",
+        LastName: "",
+        email:"",
+        Password:""
+
+    })
+    const handleInput = (event)=>{
+        setPost({...post, [event.target.name]: event.target.value})
+        
+    }
+    
+    function handleSubmit(event){
+        event.preventDefault()
+        axios.post('http://192.168.1.45:8000/signup', {post})        
+        .then(response => console.log(response))
+        .catch(err => alert(err))
+    }
+    
     return (
         <SingUpStyled>
-            <form className="input-group">
+            <form onSubmit={handleSubmit} className="input-group">
                 <h1>Sign Up</h1>
                 <h2>
                     First Name
                 </h2>
-                <input type="text" class="input" />
+                <input  name='Name' type="text" class="input" onChange={handleInput} />
                 <h2>
                     Last Name
                 </h2>
-                <input type="text" class="input" />
+                <input  name='LastName' type="text" class="input" onChange={handleInput} />
                 <h2>
                     E-mail
                 </h2>
-                <input type="text" class="input" />
+                <input name='email'  type="email" class="input" onChange={handleInput} />
                 <div>
                     <h2>
                         Password
                     </h2>
-                    <input type="password" class="input" />
+                    <input name='Password' type="password" class="input" onChange={handleInput} />
                 </div>
 
                 <div>
-                    <a href='#' class="btn btn-1">
-                        Sign Up
-                        <span></span>
-                        <span></span>
-                    </a>
+                    <button href='' class="btn btn-1">
+                        Sign Up                        
+                    </button>
                 </div>
             </form>
         </SingUpStyled>
